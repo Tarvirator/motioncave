@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>MotionCave — Motion Design Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Inter,sans-serif;
+  background:#0d1117;
+  color:white;
+}
+
+.container{
+  width:90%;
+  max-width:1200px;
+  margin:auto;
+}
+
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:24px 0;
+}
+
+.logo{
+  font-size:24px;
+  font-weight:800;
+  letter-spacing:-1px;
+}
+
+nav ul{
+  display:flex;
+  gap:32px;
+  list-style:none;
+}
+
+nav a{
+  color:#9ca3af;
+  text-decoration:none;
+}
+
+.hero{
+  padding:140px 0 100px;
+}
+
+.hero h1{
+  font-size:72px;
+  line-height:1;
+  max-width:800px;
+}
+
+.gradient{
+  background:linear-gradient(90deg,#8b5cf6,#06b6d4);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.hero p{
+  margin-top:24px;
+  font-size:20px;
+  color:#9ca3af;
+  max-width:650px;
+}
+
+.section{
+  padding:90px 0;
+}
+
+.section-title{
+  font-size:38px;
+  margin-bottom:30px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:24px;
+}
+
+.card{
+  background:#151b23;
+  border:1px solid #202938;
+  border-radius:20px;
+  overflow:hidden;
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+}
+
+.card img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+}
+
+.card-content{
+  padding:20px;
+}
+
+.card a{
+  text-decoration:none;
+  color:white;
+}
+
+.workflow{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+.step{
+  background:#151b23;
+  border:1px solid #202938;
+  padding:24px;
+  border-radius:18px;
+}
+
+.step-number{
+  font-size:14px;
+  color:#8b5cf6;
+  margin-bottom:12px;
+}
+
+.step h3{
+  margin-bottom:10px;
+}
+
+.step p{
+  color:#9ca3af;
+  line-height:1.6;
+}
+
+.skills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.skill{
+  padding:12px 18px;
+  border-radius:999px;
+  background:#151b23;
+  border:1px solid #202938;
+}
+
+footer{
+  padding:80px 0;
+  text-align:center;
+  color:#6b7280;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<nav>
+  <div class="logo">MotionCave</div>
+  <ul>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#workflow">Workflow</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <h1>
+    Bringing ideas to life through
+    <span class="gradient">motion & storytelling</span>
+  </h1>
+
+  <p>
+    Motion designer focused on SaaS promos, AI products,
+    UI animation, and cinematic explainers.
+  </p>
+</section>
+
+<section id="work" class="section">
+  <h2 class="section-title">Featured Work</h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <a href="https://www.upwork.com/freelancers/~01e3060499e31bb73d?p=2070390616928428032" target="_blank">
+        <img src="project1.jpg">
+        <div class="card-content">
+          <h3>TalkMyBot Promo</h3>
+          <p>AI-powered business automation promo video.</p>
+        </div>
+      </a>
+    </div>
+
+    <div class="card">
+      <a href="https://www.upwork.com/freelancers/~01e3060499e31bb73d?p=2054938955927080960" target="_blank">
+        <img src="project2.jpg">
+        <div class="card-content">
+          <h3>Premium Motion Design Ad</h3>
+          <p>20-second animated product promo for KAT AI.</p>
+        </div>
+      </a>
+    </div>
+
+    <div class="card">
+      <a href="https://www.upwork.com/freelancers/~01e3060499e31bb73d?p=2040464062837325824" target="_blank">
+        <img src="project3.jpg">
+        <div class="card-content">
+          <h3>UI Motion System</h3>
+          <p>Interactive animation system built in Rive.</p>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<section id="workflow" class="section">
+  <h2 class="section-title">Workflow</h2>
+
+  <div class="workflow">
+
+    <div class="step">
+      <div class="step-number">01</div>
+      <h3>Script Refining</h3>
+      <p>Refining raw ideas into concise, high-converting scripts.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-number">02</div>
+      <h3>Voice Generation</h3>
+      <p>Generating professional voiceovers aligned with tone and pacing.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-number">03</div>
+      <h3>Storyboard</h3>
+      <p>Detailed scene-by-scene visual planning with animation direction.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-number">04</div>
+      <h3>Sound Design</h3>
+      <p>Adding SFX, transitions, and audio polish for final delivery.</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="section-title">Tools</h2>
+
+  <div class="skills">
+    <div class="skill">After Effects</div>
+    <div class="skill">:contentReference[oaicite:4]{index=4}</div>
+    <div class="skill">:contentReference[oaicite:5]{index=5}</div>
+    <div class="skill">:contentReference[oaicite:6]{index=6}</div>
+    <div class="skill">Motion Design</div>
+    <div class="skill">UI Animation</div>
+  </div>
+</section>
+
+<footer id="contact">
+  MotionCave © 2026
+</footer>
+
+</div>
+
+</body>
+</html>
