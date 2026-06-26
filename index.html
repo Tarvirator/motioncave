@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
 <title>MotionCave — Motion Design Portfolio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap" rel="stylesheet">
@@ -20,9 +21,13 @@ html{
 
 body{
   font-family:Inter,sans-serif;
-  background:#0d1117;
   color:white;
   overflow-x:hidden;
+  background:
+    radial-gradient(circle at top left,#8b5cf622 0%,transparent 30%),
+    radial-gradient(circle at bottom right,#06b6d422 0%,transparent 30%),
+    radial-gradient(circle at center,#ec489922 0%,transparent 35%),
+    #0d1117;
 }
 
 .container{
@@ -30,8 +35,6 @@ body{
   max-width:1200px;
   margin:auto;
 }
-
-/* NAV */
 
 nav{
   display:flex;
@@ -54,7 +57,6 @@ nav ul{
 nav a{
   color:#9ca3af;
   text-decoration:none;
-  transition:.3s;
 }
 
 nav a:hover{
@@ -64,107 +66,49 @@ nav a:hover{
 /* HERO */
 
 .hero{
-  position: relative;
-  min-height: 85vh;
-  display: flex;
-  align-items: center;
-  padding: 0 80px;
-  margin-top: 20px;
-  border-radius: 28px;
-  overflow: hidden;
-  background: linear-gradient(
-    180deg,
-    rgba(255,255,255,0.015),
-    rgba(255,255,255,0.005)
-  );
+  min-height:85vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
 }
 
 .hero-content{
-  position: relative;
-  z-index: 3;
-  max-width: 760px;
+  max-width:800px;
 }
 
 .hero h1{
-  font-size: 88px;
-  line-height: 0.95;
-  letter-spacing: -3px;
-  max-width: 720px;
+  font-size:72px;
+  line-height:1;
+  letter-spacing:-2px;
 }
 
 .gradient{
-  background: linear-gradient(
-    90deg,
-    #8b5cf6,
-    #06b6d4
-  );
+  background:linear-gradient(90deg,#8b5cf6,#06b6d4);
   -webkit-background-clip:text;
   color:transparent;
 }
 
 .hero p{
-  margin-top: 28px;
-  font-size: 22px;
-  color: #9ca3af;
-  line-height: 1.7;
-  max-width: 620px;
-}
-
-.blob{
-  position:absolute;
-  border-radius:50%;
-  filter:blur(180px);
-  opacity:.18;
-  z-index:1;
-  animation:float 14s ease-in-out infinite;
-}
-
-.blob1{
-  width:700px;
-  height:700px;
-  background:linear-gradient(135deg,#8b5cf6,#06b6d4);
-  top:-300px;
-  left:-350px;
-}
-
-.blob2{
-  width:700px;
-  height:700px;
-  background:linear-gradient(135deg,#06b6d4,#ec4899);
-  right:-320px;
-  bottom:-250px;
-  animation-delay:5s;
-}
-
-.hero-noise{
-  position:absolute;
-  inset:0;
-  background:radial-gradient(
-    circle at center,
-    transparent 0%,
-    rgba(0,0,0,.25) 100%
-  );
-  z-index:2;
-}
-
-@keyframes float{
-  0%{ transform:translate(0,0); }
-  50%{ transform:translate(50px,-30px); }
-  100%{ transform:translate(0,0); }
+  margin-top:24px;
+  font-size:20px;
+  color:#9ca3af;
+  line-height:1.7;
 }
 
 /* GENERAL */
 
 .section{
-  padding:100px 0;
+  padding:120px 0;
 }
 
 .section-title{
-  font-size:40px;
-  margin-bottom:40px;
+  text-align:center;
+  font-size:42px;
+  margin-bottom:60px;
 }
 
-/* WORK */
+/* FEATURED WORK */
 
 .grid{
   display:grid;
@@ -173,6 +117,7 @@ nav a:hover{
 }
 
 .card{
+  position:relative;
   background:#151b23;
   border:1px solid #202938;
   border-radius:20px;
@@ -185,10 +130,23 @@ nav a:hover{
   border-color:#8b5cf6;
 }
 
-.card img{
+.card img,
+.card video{
   width:100%;
   height:220px;
   object-fit:cover;
+  display:block;
+}
+
+.card video{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  transition:.3s;
+}
+
+.card:hover video{
+  opacity:1;
 }
 
 .card-content{
@@ -207,72 +165,96 @@ nav a:hover{
 
 /* WORKFLOW */
 
-.workflow-stack{
-  display:flex;
-  flex-direction:column;
-  gap:28px;
-  max-width:720px;
+.workflow{
+  position:relative;
+  max-width:700px;
+  margin:auto;
+}
+
+.workflow-line{
+  position:absolute;
+  left:50%;
+  top:0;
+  width:2px;
+  height:100%;
+  background:linear-gradient(#8b5cf6,#06b6d4);
+  transform:translateX(-50%);
 }
 
 .workflow-item{
+  position:relative;
+  width:100%;
   display:flex;
-  gap:24px;
-  padding:24px;
-  border:1px solid #202938;
-  border-radius:20px;
+  justify-content:center;
+  margin:90px 0;
+}
+
+.workflow-card{
+  width:420px;
   background:#151b23;
+  border:1px solid #202938;
+  padding:28px;
+  border-radius:20px;
+  text-align:center;
+  position:relative;
+  z-index:2;
   transition:.3s;
 }
 
-.workflow-item:hover{
-  transform:translateX(8px);
+.workflow-card:hover{
+  transform:translateY(-6px);
   border-color:#8b5cf6;
 }
 
 .workflow-number{
-  min-width:56px;
-  height:56px;
+  width:58px;
+  height:58px;
   border-radius:50%;
   border:1px solid #8b5cf6;
   display:flex;
   align-items:center;
   justify-content:center;
+  margin:0 auto 20px;
   font-weight:700;
-}
-
-.workflow-content h3{
-  margin-bottom:10px;
-}
-
-.workflow-content p{
-  color:#9ca3af;
-  line-height:1.6;
 }
 
 /* TOOLS */
 
 .skills{
   display:flex;
+  justify-content:center;
   flex-wrap:wrap;
-  gap:12px;
+  gap:20px;
 }
 
 .skill{
-  padding:12px 18px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:14px 20px;
   border-radius:999px;
   background:#151b23;
   border:1px solid #202938;
+  transition:.3s;
 }
 
-/* FOOTER */
+.skill:hover{
+  border-color:#8b5cf6;
+  transform:translateY(-2px);
+}
+
+.skill img{
+  width:22px;
+  height:22px;
+  object-fit:contain;
+  filter:brightness(1.1);
+}
 
 footer{
   padding:80px 0;
   text-align:center;
   color:#6b7280;
 }
-
-/* SCROLL ANIMATIONS */
 
 .reveal{
   opacity:0;
@@ -285,21 +267,9 @@ footer{
   transform:translateY(0);
 }
 
-/* MOBILE */
-
 @media(max-width:768px){
-  .hero{
-    padding:40px;
-    min-height:75vh;
-  }
-
   .hero h1{
-    font-size:54px;
-    line-height:1;
-  }
-
-  .hero p{
-    font-size:18px;
+    font-size:48px;
   }
 
   nav{
@@ -307,8 +277,12 @@ footer{
     gap:20px;
   }
 
-  nav ul{
-    gap:18px;
+  .workflow-line{
+    left:30px;
+  }
+
+  .workflow-card{
+    width:100%;
   }
 }
 </style>
@@ -328,10 +302,6 @@ footer{
 </nav>
 
 <section class="hero">
-  <div class="blob blob1"></div>
-  <div class="blob blob2"></div>
-  <div class="hero-noise"></div>
-
   <div class="hero-content reveal">
     <h1>
       Bringing ideas to life through
@@ -349,9 +319,13 @@ footer{
   <h2 class="section-title">Featured Work</h2>
 
   <div class="grid">
+
     <div class="card">
-      <a href="https://www.upwork.com/" target="_blank">
+      <a href="#">
         <img src="project1.png">
+        <video muted loop>
+          <source src="preview1.mp4" type="video/mp4">
+        </video>
         <div class="card-content">
           <h3>TalkMyBot Promo</h3>
           <p>AI-powered business automation promo video.</p>
@@ -360,8 +334,11 @@ footer{
     </div>
 
     <div class="card">
-      <a href="https://www.upwork.com/" target="_blank">
+      <a href="#">
         <img src="project2.png">
+        <video muted loop>
+          <source src="preview2.mp4" type="video/mp4">
+        </video>
         <div class="card-content">
           <h3>KAT AI Promo</h3>
           <p>Premium animated AI product ad.</p>
@@ -370,52 +347,59 @@ footer{
     </div>
 
     <div class="card">
-      <a href="https://www.upwork.com/" target="_blank">
+      <a href="#">
         <img src="project3.png">
+        <video muted loop>
+          <source src="preview3.mp4" type="video/mp4">
+        </video>
         <div class="card-content">
           <h3>Rive Motion UI</h3>
           <p>Interactive animation system in Rive.</p>
         </div>
       </a>
     </div>
+
   </div>
 </section>
 
 <section id="workflow" class="section reveal">
   <h2 class="section-title">Workflow</h2>
 
-  <div class="workflow-stack">
+  <div class="workflow">
+    <div class="workflow-line"></div>
+
     <div class="workflow-item">
-      <div class="workflow-number">01</div>
-      <div class="workflow-content">
+      <div class="workflow-card">
+        <div class="workflow-number">01</div>
         <h3>Script Refining</h3>
         <p>Turning raw ideas into concise, high-converting scripts.</p>
       </div>
     </div>
 
     <div class="workflow-item">
-      <div class="workflow-number">02</div>
-      <div class="workflow-content">
+      <div class="workflow-card">
+        <div class="workflow-number">02</div>
         <h3>Voice Over</h3>
         <p>Generating professional voiceovers aligned with pacing.</p>
       </div>
     </div>
 
     <div class="workflow-item">
-      <div class="workflow-number">03</div>
-      <div class="workflow-content">
+      <div class="workflow-card">
+        <div class="workflow-number">03</div>
         <h3>Storyboard</h3>
         <p>Scene planning with detailed animation direction.</p>
       </div>
     </div>
 
     <div class="workflow-item">
-      <div class="workflow-number">04</div>
-      <div class="workflow-content">
+      <div class="workflow-card">
+        <div class="workflow-number">04</div>
         <h3>Sound Design</h3>
         <p>Final polish with transitions, SFX, and audio balancing.</p>
       </div>
     </div>
+
   </div>
 </section>
 
@@ -423,12 +407,30 @@ footer{
   <h2 class="section-title">Tools</h2>
 
   <div class="skills">
-    <div class="skill">After Effects</div>
-    <div class="skill">Rive</div>
-    <div class="skill">Premiere Pro</div>
-    <div class="skill">Blender</div>
-    <div class="skill">Motion Design</div>
-    <div class="skill">UI Animation</div>
+    <div class="skill">
+      <img src="https://cdn.simpleicons.org/adobeaftereffects" alt="After Effects">
+      After Effects
+    </div>
+
+    <div class="skill">
+      <img src="https://cdn.simpleicons.org/rive" alt="Rive">
+      Rive
+    </div>
+
+    <div class="skill">
+      <img src="https://cdn.simpleicons.org/adobepremierepro" alt="Premiere Pro">
+      Premiere Pro
+    </div>
+
+    <div class="skill">
+      <img src="https://cdn.simpleicons.org/blender" alt="Blender">
+      Blender
+    </div>
+
+    <div class="skill">
+      <img src="https://cdn.simpleicons.org/figma" alt="Figma">
+      Figma
+    </div>
   </div>
 </section>
 
@@ -439,23 +441,35 @@ footer{
 </div>
 
 <script>
-const reveals = document.querySelectorAll(".reveal");
+const reveals=document.querySelectorAll(".reveal");
 
 function revealOnScroll(){
   reveals.forEach((el,index)=>{
-    const top = el.getBoundingClientRect().top;
-    const windowHeight = window.innerHeight;
-
-    if(top < windowHeight - 100){
+    const top=el.getBoundingClientRect().top;
+    if(top<window.innerHeight-100){
       setTimeout(()=>{
         el.classList.add("active");
-      }, index * 150);
+      },index*150);
     }
   });
 }
 
-window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("scroll",revealOnScroll);
 revealOnScroll();
+
+/* Video hover autoplay */
+document.querySelectorAll(".card").forEach(card=>{
+  const video=card.querySelector("video");
+
+  card.addEventListener("mouseenter",()=>{
+    video.play();
+  });
+
+  card.addEventListener("mouseleave",()=>{
+    video.pause();
+    video.currentTime=0;
+  });
+});
 </script>
 
 </body>
