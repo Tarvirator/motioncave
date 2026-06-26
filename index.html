@@ -31,6 +31,8 @@ body{
   margin:auto;
 }
 
+/* NAV */
+
 nav{
   display:flex;
   justify-content:space-between;
@@ -59,94 +61,110 @@ nav a:hover{
   color:white;
 }
 
-/* HERO FIXED */
+/* HERO */
 
 .hero{
-  position:relative;
-  min-height:80vh;
-  display:flex;
-  align-items:center;
-  overflow:hidden;
-  padding:80px;
-  border-radius:28px;
-  margin-top:20px;
-  background:rgba(255,255,255,0.02);
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  padding: 0 80px;
+  margin-top: 20px;
+  border-radius: 28px;
+  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.015),
+    rgba(255,255,255,0.005)
+  );
 }
 
 .hero-content{
-  position:relative;
-  z-index:2;
-  max-width:760px;
+  position: relative;
+  z-index: 3;
+  max-width: 760px;
 }
 
 .hero h1{
-  font-size:78px;
-  line-height:0.95;
-  letter-spacing:-2px;
+  font-size: 88px;
+  line-height: 0.95;
+  letter-spacing: -3px;
+  max-width: 720px;
 }
 
 .gradient{
-  background:linear-gradient(90deg,#8b5cf6,#06b6d4);
+  background: linear-gradient(
+    90deg,
+    #8b5cf6,
+    #06b6d4
+  );
   -webkit-background-clip:text;
   color:transparent;
 }
 
 .hero p{
-  margin-top:28px;
-  font-size:22px;
-  color:#9ca3af;
-  max-width:620px;
-  line-height:1.7;
+  margin-top: 28px;
+  font-size: 22px;
+  color: #9ca3af;
+  line-height: 1.7;
+  max-width: 620px;
 }
-
-/* Better blob positioning */
 
 .blob{
   position:absolute;
   border-radius:50%;
-  filter:blur(160px);
-  opacity:.16;
-  z-index:0;
+  filter:blur(180px);
+  opacity:.18;
+  z-index:1;
   animation:float 14s ease-in-out infinite;
 }
 
 .blob1{
-  width:600px;
-  height:600px;
+  width:700px;
+  height:700px;
   background:linear-gradient(135deg,#8b5cf6,#06b6d4);
-  top:-220px;
-  left:-280px;
+  top:-300px;
+  left:-350px;
 }
 
 .blob2{
-  width:650px;
-  height:650px;
+  width:700px;
+  height:700px;
   background:linear-gradient(135deg,#06b6d4,#ec4899);
-  right:-300px;
-  bottom:-220px;
-  animation-delay:4s;
+  right:-320px;
+  bottom:-250px;
+  animation-delay:5s;
+}
+
+.hero-noise{
+  position:absolute;
+  inset:0;
+  background:radial-gradient(
+    circle at center,
+    transparent 0%,
+    rgba(0,0,0,.25) 100%
+  );
+  z-index:2;
 }
 
 @keyframes float{
-  0%{
-    transform:translate(0,0);
-  }
-  50%{
-    transform:translate(60px,-40px);
-  }
-  100%{
-    transform:translate(0,0);
-  }
+  0%{ transform:translate(0,0); }
+  50%{ transform:translate(50px,-30px); }
+  100%{ transform:translate(0,0); }
 }
 
+/* GENERAL */
+
 .section{
-  padding:90px 0;
+  padding:100px 0;
 }
 
 .section-title{
-  font-size:38px;
+  font-size:40px;
   margin-bottom:40px;
 }
+
+/* WORK */
 
 .grid{
   display:grid;
@@ -187,7 +205,7 @@ nav a:hover{
   color:white;
 }
 
-/* Workflow */
+/* WORKFLOW */
 
 .workflow-stack{
   display:flex;
@@ -199,7 +217,6 @@ nav a:hover{
 .workflow-item{
   display:flex;
   gap:24px;
-  align-items:flex-start;
   padding:24px;
   border:1px solid #202938;
   border-radius:20px;
@@ -232,6 +249,8 @@ nav a:hover{
   line-height:1.6;
 }
 
+/* TOOLS */
+
 .skills{
   display:flex;
   flex-wrap:wrap;
@@ -245,11 +264,15 @@ nav a:hover{
   border:1px solid #202938;
 }
 
+/* FOOTER */
+
 footer{
   padding:80px 0;
   text-align:center;
   color:#6b7280;
 }
+
+/* SCROLL ANIMATIONS */
 
 .reveal{
   opacity:0;
@@ -262,14 +285,17 @@ footer{
   transform:translateY(0);
 }
 
+/* MOBILE */
+
 @media(max-width:768px){
   .hero{
     padding:40px;
-    min-height:70vh;
+    min-height:75vh;
   }
 
   .hero h1{
-    font-size:48px;
+    font-size:54px;
+    line-height:1;
   }
 
   .hero p{
@@ -279,6 +305,10 @@ footer{
   nav{
     flex-direction:column;
     gap:20px;
+  }
+
+  nav ul{
+    gap:18px;
   }
 }
 </style>
@@ -300,6 +330,7 @@ footer{
 <section class="hero">
   <div class="blob blob1"></div>
   <div class="blob blob2"></div>
+  <div class="hero-noise"></div>
 
   <div class="hero-content reveal">
     <h1>
@@ -309,21 +340,96 @@ footer{
 
     <p>
       Motion designer focused on SaaS promos, AI products,
-      UI animation, cinematic explainers, and premium product storytelling.
+      UI animation, cinematic explainers, and premium visual storytelling.
     </p>
   </div>
 </section>
 
 <section id="work" class="section reveal">
   <h2 class="section-title">Featured Work</h2>
+
+  <div class="grid">
+    <div class="card">
+      <a href="https://www.upwork.com/" target="_blank">
+        <img src="project1.png">
+        <div class="card-content">
+          <h3>TalkMyBot Promo</h3>
+          <p>AI-powered business automation promo video.</p>
+        </div>
+      </a>
+    </div>
+
+    <div class="card">
+      <a href="https://www.upwork.com/" target="_blank">
+        <img src="project2.png">
+        <div class="card-content">
+          <h3>KAT AI Promo</h3>
+          <p>Premium animated AI product ad.</p>
+        </div>
+      </a>
+    </div>
+
+    <div class="card">
+      <a href="https://www.upwork.com/" target="_blank">
+        <img src="project3.png">
+        <div class="card-content">
+          <h3>Rive Motion UI</h3>
+          <p>Interactive animation system in Rive.</p>
+        </div>
+      </a>
+    </div>
+  </div>
 </section>
 
 <section id="workflow" class="section reveal">
   <h2 class="section-title">Workflow</h2>
+
+  <div class="workflow-stack">
+    <div class="workflow-item">
+      <div class="workflow-number">01</div>
+      <div class="workflow-content">
+        <h3>Script Refining</h3>
+        <p>Turning raw ideas into concise, high-converting scripts.</p>
+      </div>
+    </div>
+
+    <div class="workflow-item">
+      <div class="workflow-number">02</div>
+      <div class="workflow-content">
+        <h3>Voice Over</h3>
+        <p>Generating professional voiceovers aligned with pacing.</p>
+      </div>
+    </div>
+
+    <div class="workflow-item">
+      <div class="workflow-number">03</div>
+      <div class="workflow-content">
+        <h3>Storyboard</h3>
+        <p>Scene planning with detailed animation direction.</p>
+      </div>
+    </div>
+
+    <div class="workflow-item">
+      <div class="workflow-number">04</div>
+      <div class="workflow-content">
+        <h3>Sound Design</h3>
+        <p>Final polish with transitions, SFX, and audio balancing.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section id="tools" class="section reveal">
   <h2 class="section-title">Tools</h2>
+
+  <div class="skills">
+    <div class="skill">After Effects</div>
+    <div class="skill">Rive</div>
+    <div class="skill">Premiere Pro</div>
+    <div class="skill">Blender</div>
+    <div class="skill">Motion Design</div>
+    <div class="skill">UI Animation</div>
+  </div>
 </section>
 
 <footer id="contact">
